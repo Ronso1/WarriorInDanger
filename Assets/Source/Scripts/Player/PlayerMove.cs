@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,25 +6,17 @@ public class PlayerMove : MonoBehaviour
     private const float FLIP_BACK = -180f;
     private const float FLIP_DEFAULT = 0f;
 
+    [SerializeField] private GroundCheckLogic _groundCheckLogic;
     [SerializeField] private Rigidbody2D _playerRb;
     [SerializeField] private BoxCollider2D _playerCollider;
     [SerializeField] private float _playerSpeed = 2f;
     [SerializeField] private float _jumpHeight = 2f;
+    [SerializeField] private float _velocityScale = 2f;
 
     private InputActions _inputActions;
-    private List<Collider2D> _groundColliders;
-
-    bool IsGrounded
-    {
-        get
-        {
-            return _groundColliders.Count > 0;
-        }
-    }
 
     private void Awake()
     {
-        _groundColliders = new List<Collider2D>();
         _inputActions = new InputActions();
         _inputActions.Enable();
     }
@@ -40,26 +31,14 @@ public class PlayerMove : MonoBehaviour
         _inputActions.Player.Jump.performed -= OnJumpButtonPerformed;
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (_groundCheckLogic.IsGrounded is false) _playerRb.linearVelocityY -= _velocityScale;
+    }
+
     private void OnJumpButtonPerformed(InputAction.CallbackContext context)
     {
-        if (IsGrounded) _playerRb.linearVelocityY = _jumpHeight;
-    }
-
-    void OnCollisionStay2D(Collision2D coll)
-    {
-        if (!_groundColliders.Contains(coll.collider))
-            foreach (var p in coll.contacts)
-                if (p.point.y < _playerCollider.bounds.min.y)
-                {
-                    _groundColliders.Add(coll.collider);
-                    break;
-                }
-    }
-
-    void OnCollisionExit2D(Collision2D coll)
-    {
-        if (_groundColliders.Contains(coll.collider))
-            _groundColliders.Remove(coll.collider);
+        if (_groundCheckLogic.IsGrounded) _playerRb.linearVelocityY = _jumpHeight;         
     }
 
     private void OnDestroy()
@@ -70,7 +49,7 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         var inputDirection = _inputActions.Player.Move.ReadValue<Vector2>();
-
+        print(_groundCheckLogic.IsGrounded);
         Movement(inputDirection);
     }
 
