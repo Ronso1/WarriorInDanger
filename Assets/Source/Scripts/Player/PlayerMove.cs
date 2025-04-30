@@ -49,7 +49,6 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         var inputDirection = _inputActions.Player.Move.ReadValue<Vector2>();
-        print(_groundCheckLogic.IsGrounded);
         Movement(inputDirection);
     }
 
