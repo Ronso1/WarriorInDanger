@@ -54,11 +54,11 @@ public class PlayerMove : MonoBehaviour
 
     private void Movement(Vector2 moveDirection)
     {
-        if (moveDirection.x < 0)
+        if (moveDirection.x < 0f)
         {
             transform.localEulerAngles = new Vector3(0f, FLIP_BACK);
         }
-        else if (moveDirection.x > 0)
+        else if (moveDirection.x > 0f)
         {
             transform.localEulerAngles = new Vector3(0f, FLIP_DEFAULT);
         }
