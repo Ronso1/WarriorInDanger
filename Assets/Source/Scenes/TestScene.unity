@@ -526,6 +526,7 @@ MonoBehaviour:
   _playerCollider: {fileID: 756923578}
   _playerSpeed: 5
   _jumpHeight: 7
+  _velocityScale: 2
 --- !u!61 &756923578
 BoxCollider2D:
   m_ObjectHideFlags: 0
