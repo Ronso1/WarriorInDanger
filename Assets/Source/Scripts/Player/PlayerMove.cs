@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _velocityScale = 2f;
 
     private InputActions _inputActions;
+    private bool _isMoving = true;
 
     private void Awake()
     {
@@ -33,12 +34,24 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (_groundCheckLogic.IsGrounded is false) _playerRb.linearVelocityY -= _velocityScale;
+        if (_groundCheckLogic.IsGrounded is false)
+        {
+            _isMoving = false;
+        }
+        else
+        {
+            _isMoving = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        _isMoving = true;
     }
 
     private void OnJumpButtonPerformed(InputAction.CallbackContext context)
     {
-        if (_groundCheckLogic.IsGrounded) _playerRb.linearVelocityY = _jumpHeight;         
+        if (_groundCheckLogic.IsGrounded) _playerRb.linearVelocityY = _jumpHeight;
     }
 
     private void OnDestroy()
@@ -54,6 +67,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Movement(Vector2 moveDirection)
     {
+        if (_isMoving is false) return;
+
         if (moveDirection.x < 0f)
         {
             transform.localEulerAngles = new Vector3(0f, FLIP_BACK);
