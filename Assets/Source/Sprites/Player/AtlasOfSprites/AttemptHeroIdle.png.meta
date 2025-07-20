@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 619b90027b23a5146a2e6258b1aa1620
+guid: 9576f468d0c1ae94292812d88fea9567
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5677159471585715619
-    second: AttemptHeroIdle_0
+      213: 4441091131853847602
+    second: AttemptHeroIdle 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -77,7 +77,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AttemptHeroIdle_0
+      name: AttemptHeroIdle 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a56c15e57259ce40800000000000000
-      internalID: 5677159471585715619
+      spriteID: 23c3941cadce1ad30800000000000000
+      internalID: 4441091131853847602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttemptHeroIdle_1
+      name: AttemptHeroIdle 1_1
       rect:
         serializedVersion: 2
         x: 72
@@ -163,8 +163,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ca84e51c6bc7f2419387283aeb1b457
-      internalID: 549945635
+      spriteID: 819e0947a088ce2458fddc277c1a889b
+      internalID: 1110974084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttemptHeroIdle 1_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 72
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21e28935385ca146bc7a06bb5c5e909
+      internalID: -598068804
       vertices: []
       indices: 
       edges: []
@@ -173,7 +195,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9764d4806bb238145a3d36b800a0b796
+    spriteID: 8a71674eecf9e574888f7a77fbed61cc
     internalID: 0
     vertices: []
     indices: 
@@ -183,8 +205,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AttemptHeroIdle_0: 5677159471585715619
-      AttemptHeroIdle_1: 549945635
+      AttemptHeroIdle 1_0: 4441091131853847602
+      AttemptHeroIdle 1_1: 1110974084
+      AttemptHeroIdle 1_2: -598068804
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
